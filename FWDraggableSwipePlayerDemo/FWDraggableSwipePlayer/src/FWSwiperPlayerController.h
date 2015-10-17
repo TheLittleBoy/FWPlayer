@@ -27,8 +27,7 @@ extern NSString *FWSwipePlayerSettingViewCloseBtnOnclick;
 typedef enum _FWPlayerMoveState {
     FWPlayerMoveNone = 0,
     FWPlayerMoveProgress = 1,
-    FWPlayerMoveVolume  = 2,
-    FWPlayerMoveBright  = 3
+    FWPlayerMoveVolume  = 2
 } FWPlayerMoveState;
 
 @protocol FWPlayerDelegate <NSObject>

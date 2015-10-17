@@ -36,9 +36,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     UIImageView *centerView;
     UIButton *playBtn;
     UIImageView *swipeView;
-    UIImageView *middleBackground;
-    UIImageView *middleImageView;
-    UILabel *middleLabel;
+    UIImageView *middleBackground;//貌似没用了
     UILabel *progressLabel;
     
     BOOL isPlaying;
@@ -208,17 +206,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     middleBackground.backgroundColor = [UIColor clearColor];
     [middleBackground setHidden:YES];
     [self.view addSubview:middleBackground];
-    
-    middleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, middleBackground.frame.size.width, 30)];
-    middleLabel.textAlignment = NSTextAlignmentCenter;
-    middleLabel.font = [UIFont systemFontOfSize:12];
-    middleLabel.textColor = [UIColor grayColor];
-    middleLabel.text = NSLocalizedString(@"lightness",@"光度");
-    [middleBackground addSubview:middleLabel];
-    
-    middleImageView = [[UIImageView alloc] initWithFrame:CGRectMake((middleBackground.frame.size.width - 35) / 2, (middleBackground.frame.size.height - 35) / 2, 70 / 2, 70/ 2)];
-    [middleImageView setImage:[UIImage imageNamed:@"play_gesture_brightness"]];
-    [middleBackground addSubview:middleImageView];
     
     swipeView = [[UIImageView alloc] initWithFrame:CGRectMake((centerView.frame.size.width - 70) / 2, (centerView.frame.size.height - 70) / 2, 70, 70)];
     [swipeView setImage:[UIImage imageNamed:@"play_gesture_forward"]];
@@ -481,7 +468,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 - (void)swipe:(id)sender
 {
     CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
-    CGPoint locationPoint = [(UIPanGestureRecognizer*)sender locationInView:self.view];
     
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded)
     {
@@ -489,13 +475,9 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     }
     else
     {
-        CGFloat width = self.view.frame.size.width;
-        
         if(self.moveState == FWPlayerMoveNone)
         {
-            if(fabs(translatedPoint.y) > 5 && locationPoint.x < width / 3 * 2)
-                self.moveState = FWPlayerMoveBright;
-            else if( fabs(translatedPoint.y) > 5 && locationPoint.x > width / 3 * 2)
+            if( fabs(translatedPoint.y) > 5)
                 self.moveState = FWPlayerMoveVolume;
             else if( fabs(translatedPoint.y) < 4 && fabs(translatedPoint.x) > 5)
                 self.moveState = FWPlayerMoveProgress;
@@ -513,9 +495,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             break;
         case FWPlayerMoveVolume:
             [self volumeHide:point];
-            break;
-        case FWPlayerMoveBright:
-            [self brightHide:point];
             break;
         default:
             break;
@@ -555,9 +534,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             break;
         case FWPlayerMoveVolume:
             [self volumeShow:point];
-            break;
-        case FWPlayerMoveBright:
-            [self brightShow:point];
             break;
         default:
             break;
@@ -601,25 +577,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             [MPMusicPlayerController applicationMusicPlayer].volume = volume;
         
         [middleBackground setHidden:YES];
-    }
-}
-
--(void)brightShow:(CGPoint)point
-{
-    if(!isSettingViewShow)
-    {
-        int number = point.y;
-        
-        float brightness0 = [UIScreen mainScreen].brightness;
-        float add =   - number / screenWidth ;
-        float brightness = brightness0 + add ;
-        brightness = floorf(brightness * 100) / 100;
-        
-        if(brightness != brightness0)
-            [[UIScreen mainScreen] setBrightness:brightness];
-        [self showSwipeView];
-        [swipeView setHidden:YES];
-        [middleBackground setHidden:NO];
     }
 }
 
