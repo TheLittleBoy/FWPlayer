@@ -98,7 +98,7 @@
         [self.playerManager showAtViewAndPlay:self.view];
         
         
-        self.listView.frame = CGRectMake(0, 0, self.listView.frame.size.width, self.view.frame.size.height);
+        self.listView.frame = CGRectMake(0, 20, self.listView.frame.size.width, self.view.frame.size.height);
         
     }
     else
@@ -115,6 +115,12 @@
             playerController = nil;
         }
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleSwipePlayerViewStateChange:)
+                                                     name:FWSwipePlayerViewStateChange object:nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerViewStateChange object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"isSmall",[NSNumber numberWithBool:NO],@"isLock",nil] ];
+        
         playerController =  [[FWSwipePlayerViewController alloc]init];
         FWSwipePlayerConfig *config = [[FWSwipePlayerConfig alloc]init];
 
@@ -130,13 +136,10 @@
         playerController.moviePlayer.delegate = self;
         [playerController attachTo:self];
         [playerController playStartAt:200];
-        self.listView.frame = CGRectMake(0, playerController.moviePlayer.view.frame.size.height, self.listView.frame.size.width, self.view.frame.size.height - playerController.moviePlayer.view.frame.size.height);
 
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(handleSwipePlayerViewStateChange:)
-                                                     name:FWSwipePlayerViewStateChange object:nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerViewStateChange object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"isSmall",[NSNumber numberWithBool:YES],@"isLock",nil] ];
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerViewStateChange object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"isSmall",[NSNumber numberWithBool:NO],@"isLock",nil] ];
     }
 }
 
@@ -158,10 +161,13 @@
 -(void)doneBtnOnClick:(id)sender
 {
     [self exitPlayer];
-    [self setOrientation:UIDeviceOrientationPortrait];
-    [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerViewStateChange object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"isSmall",[NSNumber numberWithBool:NO],@"isLock",nil] ];
     
-    self.listView.frame = CGRectMake(0, 0, self.listView.frame.size.width, self.view.frame.size.height);
+    shouldRotate = YES;
+    [self setOrientation:UIDeviceOrientationPortrait];
+    
+    self.listView.frame = CGRectMake(0, 20, self.listView.frame.size.width, self.view.frame.size.height);
+    
+    shouldRotate = NO;
 }
 
 - (void)exitPlayer
@@ -188,19 +194,9 @@
 
 #pragma mark rotata
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return shouldRotate;
-}
-
 - (BOOL)shouldAutorotate
 {
     return shouldRotate;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-     return UIInterfaceOrientationMaskAll;
 }
 
 @end

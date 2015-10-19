@@ -355,11 +355,11 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
     if (isFullScreen) {
         [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"play_mini_p"] forState:UIControlStateNormal];
-        [self setOrientation:UIDeviceOrientationPortrait];
+        //[self setOrientation:UIDeviceOrientationPortrait];
         isFullScreen = NO;
     } else {
         [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"ppq_play_full_p"] forState:UIControlStateNormal];
-        [self setOrientation:UIDeviceOrientationLandscapeLeft];
+        //[self setOrientation:UIDeviceOrientationLandscapeLeft];
         isFullScreen = YES;
     }
     
@@ -568,6 +568,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         int number = point.y;
         
         float volume0 = [MPMusicPlayerController applicationMusicPlayer].volume;
+        //MPVolumeView
         float add = number > 0 ? 0.0625:-0.0625;
         float volume = volume0 + add;
         volume = floorf(volume * 100) / 100;
@@ -776,6 +777,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 -(void)UIDeviceOrientationDidChangeNotification:(NSNotification *)notity
 {
+    
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     if(orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight )
     {
@@ -784,8 +786,11 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     }
     else if(orientation == UIDeviceOrientationPortrait)
     {
+        
+        return;
+        
         if(self.view.frame.size.height > config.topPlayerHeight && !isLock)
-            [self updatePlayerFrame:CGRectMake(0, 0, screenWidth, config.topPlayerHeight)];
+            [self updatePlayerFrame:CGRectMake(0, 20, screenWidth, config.topPlayerHeight)];
     }
 }
 

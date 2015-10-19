@@ -66,7 +66,7 @@
     }
     else
         self.moviePlayer = [[FWSwiperPlayerController alloc]initWithContentURL:[NSURL URLWithString: [infoDict objectForKey:@"url"]] andConfig:config];
-    [self.moviePlayer updatePlayerFrame:CGRectMake(0, 0, self.view.frame.size.width, config.topPlayerHeight)];
+    [self.moviePlayer updatePlayerFrame:CGRectMake(0, 20, self.view.frame.size.width, config.topPlayerHeight)];
     [self.view addSubview: self.moviePlayer.view];
 }
 
@@ -75,15 +75,21 @@
     attachViewController = viewController;
     [attachViewController.view addSubview:self.moviePlayer.view];
     [self.moviePlayer attachTo:attachViewController];
+    
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        int val = UIDeviceOrientationLandscapeLeft;
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+    }
 }
 
 - (void)playStartAt:(NSTimeInterval)time
 {
     [self.moviePlayer playStartAt:time];
-}
-
--(NSUInteger)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskAll;
 }
 
 -(void)stopAndRemove

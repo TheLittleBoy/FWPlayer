@@ -75,8 +75,8 @@
 -(void)updateFrame:(CGRect)frame
 {
     [super updateFrame:frame];
-    titleLabel.frame =  CGRectMake(8, 12, frame.size.width - 140, 16);
-    navView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    titleLabel.frame =  CGRectMake(30, 12, frame.size.width - 140, 16);
+    navView.frame = CGRectMake(0, 20, frame.size.width, frame.size.height-20);
     settingBtn.frame = CGRectMake(frame.size.width - 22 - 8, 8, 22, 22);
     self.lockScreenBtn.frame = CGRectMake(settingBtn.frame.origin.x  - 22 - 16, 2, 74 / 2, 92 / 2);
 }
@@ -87,14 +87,11 @@
     {
         [titleLabel setHidden:NO];
         [self.lockScreenBtn setHidden:NO];
-        [doneBtn removeFromSuperview];
     }
     else if(orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationPortraitUpsideDown)
     {
         [self.lockScreenBtn setHidden:YES];
         [titleLabel setHidden:YES];
-        if(!config.draggable)
-            [navView addSubview:doneBtn];
     }
 }
 
