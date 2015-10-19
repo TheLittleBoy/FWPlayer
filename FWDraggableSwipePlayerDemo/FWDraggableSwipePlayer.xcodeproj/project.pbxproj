@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0476A8CF1BD47E74005DD5C3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0476A8CE1BD47E74005DD5C3 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
 		5A14A8B61A70E647000920FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A14A8B51A70E647000920FB /* main.m */; };
 		5A14A8B91A70E647000920FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A14A8B81A70E647000920FB /* AppDelegate.m */; };
 		5A14A8C11A70E647000920FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A14A8C01A70E647000920FB /* Images.xcassets */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0476A8CE1BD47E74005DD5C3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5A14A8B01A70E647000920FB /* FWDraggableSwipePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FWDraggableSwipePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A14A8B41A70E647000920FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A14A8B51A70E647000920FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		5A14A8A71A70E647000920FB = {
 			isa = PBXGroup;
 			children = (
+				0476A8CE1BD47E74005DD5C3 /* Default-568h@2x.png */,
 				5AE5814C1AEA40190006D709 /* LICENSE.md */,
 				5AE581491AEA16D60006D709 /* FWDraggableSwipePlayer.podspec */,
 				5A14A8B21A70E647000920FB /* FWDraggableSwipePlayer */,
@@ -227,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				5AF5F02E1B1D829E00E1402D /* MPMoviePlayer */,
-				5AF5F02D1B1D829500E1402D /* AVPlayer */,
 				5AE68F301AA83312006861AD /* Utility */,
 				5ADC7EAE1AAD8183007DA349 /* UI */,
 				5AE348D91AF7532D0058E278 /* FWDraggableManager.h */,
@@ -301,13 +303,6 @@
 				5AE348EC1AF7533B0058E278 /* FWPlayerColorUtil.m */,
 			);
 			name = Utility;
-			sourceTree = "<group>";
-		};
-		5AF5F02D1B1D829500E1402D /* AVPlayer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = AVPlayer;
 			sourceTree = "<group>";
 		};
 		5AF5F02E1B1D829E00E1402D /* MPMoviePlayer */ = {
@@ -420,6 +415,7 @@
 				5AE348BE1AF753060058E278 /* play_gesture_forward.png in Resources */,
 				5AE348C91AF753060058E278 /* uploading_button_share@3x.png in Resources */,
 				5AE348BF1AF753060058E278 /* play_gesture_rewind.png in Resources */,
+				0476A8CF1BD47E74005DD5C3 /* Default-568h@2x.png in Resources */,
 				5AE348BB1AF753060058E278 /* mini_middle_bg.png in Resources */,
 				5AE348C41AF753060058E278 /* plugin_fullscreen_bottom_lock_btn_selected.png in Resources */,
 				5AE5814B1AEA3F640006D709 /* Main.storyboard in Resources */,
@@ -547,7 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -582,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -599,10 +595,11 @@
 					"$(PROJECT_DIR)/FWDraggableSwipePlayer",
 				);
 				INFOPLIST_FILE = FWDraggableSwipePlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386";
 			};
 			name = Debug;
@@ -617,10 +614,11 @@
 					"$(PROJECT_DIR)/FWDraggableSwipePlayer",
 				);
 				INFOPLIST_FILE = FWDraggableSwipePlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386";
 			};
 			name = Release;

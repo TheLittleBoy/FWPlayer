@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "139F0A0FE2B116B8823F196B064698B03A2FB85D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "139F0A0FE2B116B8823F196B064698B03A2FB85D" : 0,
+    "5A70A6FCF3624CD383520F4BB23C57DEA92FC643" : 0,
+    "C687E799656C451799B3094E17F8DE483B6327CA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "53AF1C86-BBF0-4CD4-A893-91C65E3467FC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "139F0A0FE2B116B8823F196B064698B03A2FB85D" : "git%20fwplayer",
+    "5A70A6FCF3624CD383520F4BB23C57DEA92FC643" : "tvb\/gotvs\/myvod_ios",
+    "C687E799656C451799B3094E17F8DE483B6327CA" : "git"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FWDraggableSwipePlayer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FWDraggableSwipePlayerDemo\/FWDraggableSwipePlayer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/fillywong\/FWDraggableSwipePlayer",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "139F0A0FE2B116B8823F196B064698B03A2FB85D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/tvb\/myvod_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5A70A6FCF3624CD383520F4BB23C57DEA92FC643"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/fillywong\/FWDraggableSwipePlayer",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C687E799656C451799B3094E17F8DE483B6327CA"
+    }
+  ]
+}
