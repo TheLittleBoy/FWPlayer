@@ -66,6 +66,8 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     UIViewController * attachViewController;
     
     NSTimer *bandwidthTimer;
+    
+    CGPoint swipePoint;
 }
 @end
 
@@ -86,6 +88,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         screenHeight = screenRect.size.height;
         
         self.view.frame = CGRectMake(0, 0, screenHeight, screenHeight);
+        swipePoint = CGPointZero;
         currentVideoUrl = url;
         needToHideController = NO;
         isLock = NO;
@@ -477,13 +480,28 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     {
         if(self.moveState == FWPlayerMoveNone)
         {
-            if( fabs(translatedPoint.y) > 5)
+            if( fabs(swipePoint.y - translatedPoint.y) > 3)
+            {
                 self.moveState = FWPlayerMoveVolume;
+            }
             else if( fabs(translatedPoint.y) < 4 && fabs(translatedPoint.x) > 5)
+            {
                 self.moveState = FWPlayerMoveProgress;
+            }
         }
-        if(self.moveState != FWPlayerMoveNone)
+        
+        if (self.moveState == FWPlayerMoveVolume) {
+            
+            if (fabs(swipePoint.y - translatedPoint.y)>20) {
+                [self movingStateChange:CGPointMake(translatedPoint.x, swipePoint.y - translatedPoint.y)];
+                swipePoint = translatedPoint;
+            }
+            
+        }else if (self.moveState == FWPlayerMoveProgress)
+        {
             [self movingStateChange:translatedPoint];
+        }
+        
     }
 }
 
@@ -504,6 +522,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 -(void)volumeHide:(CGPoint)point
 {
+    swipePoint = CGPointZero;
     [swipeView setHidden:YES];
 }
 
@@ -569,8 +588,8 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         int number = point.y;
         
         float volume0 = [MPMusicPlayerController applicationMusicPlayer].volume;
-        float add =  - number / screenWidth ;
-        float volume = volume0 + add ;
+        float add = number > 0 ? 0.0625:-0.0625;
+        float volume = volume0 + add;
         volume = floorf(volume * 100) / 100;
         
         if(volume != volume0)
