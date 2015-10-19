@@ -406,9 +406,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
     isLock = !isLock;
     
-    if(!config.draggable)
-        [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerViewStateChange object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:isSmall],@"isSmall",[NSNumber numberWithBool:isLock],@"isLock",nil] ];
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerLockBtnOnclick object:self userInfo:nil] ;
     
     if(self.delegate)

@@ -35,13 +35,14 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QUE-pd-fj0"/>
                     <connections>
                         <outlet property="listView" destination="I2J-Dd-Smu" id="9dY-Ig-Fte"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCZ-yy-YQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85" y="78"/>
+            <point key="canvasLocation" x="90" y="86"/>
         </scene>
     </scenes>
 </document>
