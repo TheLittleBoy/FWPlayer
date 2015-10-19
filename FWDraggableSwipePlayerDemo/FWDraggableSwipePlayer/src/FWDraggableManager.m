@@ -480,6 +480,7 @@ NSString *FWSwipePlayerViewStateChange = @"FWSwipePlayerViewStateChange";
 
 #pragma player delegate
 
+//没用了，这个函数！
 - (void)collapseBtnOnClick:(id)sender
 {
     if(config.draggable)

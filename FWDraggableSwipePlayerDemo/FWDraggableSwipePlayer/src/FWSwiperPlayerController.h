@@ -13,7 +13,6 @@
 #import "FWSwipePlayerConfig.h"
 
 extern NSString *FWSwipePlayerLockBtnOnclick;
-extern NSString *FWSwipePlayerCollapseBtnOnclick;
 extern NSString *FWSwipePlayerPlayBtnOnclick;
 extern NSString *FWSwipePlayerFullScreenBtnOnclick;
 extern NSString *FWSwipePlayerNextEpisodeBtnOnclick;
@@ -32,7 +31,6 @@ typedef enum _FWPlayerMoveState {
 @protocol FWPlayerDelegate <NSObject>
 
 @optional
-- (void)collapseBtnOnClick:(id)sender;
 - (void)tapInside:(id)sender;
 - (void)playBtnOnClick:(id)sender;
 - (void)fullScreenBtnOnClick:(id)sender;

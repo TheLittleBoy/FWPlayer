@@ -14,7 +14,6 @@
     FWSwipePlayerConfig *config;
     UIImageView *navView;
     UIButton *doneBtn;
-    UIButton *collapseBtn;
     UIButton *settingBtn;
     UILabel *titleLabel;
 }
@@ -49,13 +48,6 @@
     if(!config.draggable)
         [navView addSubview:doneBtn];
     
-    collapseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [collapseBtn setBackgroundImage:[UIImage imageNamed:@"ic_vidcontrol_collapse"] forState:UIControlStateNormal];
-    [collapseBtn setBackgroundImage:[UIImage imageNamed:@"ic_vidcontrol_collapse_pressed"] forState:UIControlStateHighlighted];
-    [collapseBtn addTarget:self action:@selector(collapseBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
-    if(config.draggable)
-        [navView addSubview:collapseBtn];
-    
     settingBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
     [settingBtn addTarget:self action:@selector(settingBtnOnClick:)forControlEvents:UIControlEventTouchUpInside];
     [settingBtn setImage:[UIImage imageNamed: @"btn_player_setting"] forState:UIControlStateNormal];
@@ -78,14 +70,6 @@
     [navView addSubview:titleLabel];
     
     [self.layerView addSubview:navView];
-    
-    collapseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    collapseBtn.frame = CGRectMake(0, 0, 40, 40);
-    [collapseBtn setBackgroundImage:[UIImage imageNamed:@"ic_vidcontrol_collapse"] forState:UIControlStateNormal];
-    [collapseBtn setBackgroundImage:[UIImage imageNamed:@"ic_vidcontrol_collapse_pressed"] forState:UIControlStateHighlighted];
-    [collapseBtn addTarget:self action:@selector(collapseBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
-    if(config.draggable)
-        [navView addSubview:collapseBtn];
 }
 
 -(void)updateFrame:(CGRect)frame
@@ -101,14 +85,12 @@
 {
     if(orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight)
     {
-        [collapseBtn setHidden:YES];
         [titleLabel setHidden:NO];
         [self.lockScreenBtn setHidden:NO];
         [doneBtn removeFromSuperview];
     }
     else if(orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationPortraitUpsideDown)
     {
-        [collapseBtn setHidden:NO];
         [self.lockScreenBtn setHidden:YES];
         [titleLabel setHidden:YES];
         if(!config.draggable)
@@ -121,13 +103,6 @@
     if(self.delegate)
         if([self.delegate respondsToSelector:@selector(doneBtnOnClick:)])
             [self.delegate doneBtnOnClick:sender];
-}
-
--(void)collapseBtnOnClick:(id)sender
-{
-    if(self.delegate)
-        if([self.delegate respondsToSelector:@selector(collapseBtnOnClick:)])
-            [self.delegate collapseBtnOnClick:sender];
 }
 
 -(void)settingBtnOnClick:(id)sender

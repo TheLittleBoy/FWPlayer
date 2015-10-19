@@ -12,7 +12,6 @@
 @protocol FWSwipePlayerNavLayerDelegate <NSObject>
 
 -(void)doneBtnOnClick:(id)sender;
--(void)collapseBtnOnClick:(id)sender;
 -(void)settingBtnOnClick:(id)sender;
 -(void)lockScreenBtnOnClick:(id)sender;
 
