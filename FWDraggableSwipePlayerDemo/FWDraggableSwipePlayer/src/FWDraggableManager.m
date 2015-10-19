@@ -497,11 +497,6 @@ NSString *FWSwipePlayerViewStateChange = @"FWSwipePlayerViewStateChange";
     }
 }
 
--(void)shareBtnOnClick:(id)sender
-{
-    NSLog(@"shareBtnOnClick");
-}
-
 -(void)tapInside:(id)sender
 {
     if(isSmall)

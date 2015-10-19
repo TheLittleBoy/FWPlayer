@@ -15,7 +15,6 @@
     UIImageView *navView;
     UIButton *doneBtn;
     UIButton *collapseBtn;
-    UIButton *shareBtn;
     UIButton *settingBtn;
     UILabel *titleLabel;
 }
@@ -62,11 +61,6 @@
     [settingBtn setImage:[UIImage imageNamed: @"btn_player_setting"] forState:UIControlStateNormal];
     [navView addSubview:settingBtn];
     
-    shareBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
-    [shareBtn addTarget:self action:@selector(shareBtnOnClick:)forControlEvents:UIControlEventTouchUpInside];
-    [shareBtn setImage:[UIImage imageNamed: @"uploading_button_share"] forState:UIControlStateNormal];
-    [navView addSubview:shareBtn];
-    
     self.lockScreenBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
     
     [self.lockScreenBtn addTarget:self action:@selector(lockScreenBtnOnClick:)forControlEvents:UIControlEventTouchUpInside];
@@ -100,8 +94,7 @@
     titleLabel.frame =  CGRectMake(8, 12, frame.size.width - 140, 16);
     navView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
     settingBtn.frame = CGRectMake(frame.size.width - 22 - 8, 8, 22, 22);
-    shareBtn.frame = CGRectMake(settingBtn.frame.origin.x  - 22 - 16, 8, 22, 22);
-    self.lockScreenBtn.frame = CGRectMake(shareBtn.frame.origin.x  - 22 - 16, 2, 74 / 2, 92 / 2);
+    self.lockScreenBtn.frame = CGRectMake(settingBtn.frame.origin.x  - 22 - 16, 2, 74 / 2, 92 / 2);
 }
 
 - (void)orientationChange:(UIDeviceOrientation)orientation
@@ -142,13 +135,6 @@
     if(self.delegate)
         if([self.delegate respondsToSelector:@selector(settingBtnOnClick:)])
             [self.delegate settingBtnOnClick:sender];
-}
-
--(void)shareBtnOnClick:(id)sender
-{
-    if(self.delegate)
-        if([self.delegate respondsToSelector:@selector(shareBtnOnClick:)])
-            [self.delegate shareBtnOnClick:sender];
 }
 
 -(void)lockScreenBtnOnClick:(id)sender

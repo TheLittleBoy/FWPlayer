@@ -14,7 +14,6 @@
 
 
 NSString *FWSwipePlayerLockBtnOnclick = @"FWSwipePlayerLockBtnOnclick";
-NSString *FWSwipePlayerShareBtnOnclick = @"FWSwipePlayerShareBtnOnclick";
 NSString *FWSwipePlayerSettingBtnOnclick = @"FWSwipePlayerSettingBtnOnclick";
 NSString *FWSwipePlayerCollapseBtnOnclick = @"FWSwipePlayerCollapseBtnOnclick";
 NSString *FWSwipePlayerDoneBtnOnclick = @"FWSwipePlayerDoneBtnOnclick";
@@ -434,15 +433,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     if(self.delegate)
         if([self.delegate respondsToSelector:@selector(doneBtnOnClick:)])
             [self.delegate doneBtnOnClick:sender];
-}
-
--(void)shareBtnOnClick:(id)sender
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerShareBtnOnclick object:self userInfo:nil] ;
-    
-    if(self.delegate)
-        if([self.delegate respondsToSelector:@selector(shareBtnOnClick:)])
-            [self.delegate shareBtnOnClick:sender];
 }
 
 -(void)settingBtnOnClick:(id)sender

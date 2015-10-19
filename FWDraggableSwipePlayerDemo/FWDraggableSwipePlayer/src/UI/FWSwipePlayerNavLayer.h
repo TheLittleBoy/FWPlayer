@@ -14,7 +14,6 @@
 -(void)doneBtnOnClick:(id)sender;
 -(void)collapseBtnOnClick:(id)sender;
 -(void)settingBtnOnClick:(id)sender;
--(void)shareBtnOnClick:(id)sender;
 -(void)lockScreenBtnOnClick:(id)sender;
 
 @end
