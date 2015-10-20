@@ -318,6 +318,13 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
                                                     selector:@selector(retrieveTraffic:) userInfo:nil repeats:YES];
 }
 
+-(void)hiddenMenuView
+{
+    [menuLayer disappear];
+    
+    isSettingViewShow = NO;
+}
+
 #pragma mark slider
 - (void)changePlayerProgress:(id)sender {
     isSeeking = YES;
@@ -349,7 +356,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             [self showControlsAndHiddenControlsAfter:HiddenControlTime];
         else
         {
-           
+            [self hiddenMenuView];
         }
     }
     
@@ -440,6 +447,8 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 {
     [self hiddenControls];
     [menuLayer show];
+    
+    isSettingViewShow = YES;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerMenuBtnOnclick object:self userInfo:nil] ;
     
@@ -672,7 +681,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
     [loadingLayer updateFrame:rect];
     [navLayer updateFrame:CGRectMake(0, 0, viewWidth, 60)];
-    [menuLayer updateFrame:CGRectMake(viewWidth-200, 0, 200, viewHeight)];
+    [menuLayer updateFrame:CGRectMake(viewWidth, 0, 200, viewHeight)];
     
     [bottomLayer updateFrame:CGRectMake(0, viewHeight - 40, viewWidth, 40)];
     

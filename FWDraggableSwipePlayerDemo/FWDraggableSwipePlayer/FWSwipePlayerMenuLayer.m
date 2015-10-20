@@ -61,20 +61,18 @@
 
 -(void)disappear
 {
-    
     CGFloat x = self.rootView.frame.size.width;
-    CGFloat y = menuView.frame.origin.y;
-    CGFloat w = menuView.frame.size.width;
-    CGFloat h = menuView.frame.size.height;
+    CGFloat y = self.layerView.frame.origin.y;
+    CGFloat w = self.layerView.frame.size.width;
+    CGFloat h = self.layerView.frame.size.height;
     
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         //
-        menuView.frame = CGRectMake(x, y, w, h);
-        [menuView setHidden:YES];
+        self.layerView.frame = CGRectMake(x, y, w, h);
         
     } completion:^(BOOL finished) {
         //
-        
+        [menuView setHidden:YES];
         [super disappear];
         [super remove];
     }];
@@ -84,16 +82,16 @@
 {
     [super show];
     [super attach];
+    [menuView setHidden:NO];
     
-    CGFloat x = self.rootView.frame.size.width - menuView.frame.size.width;
-    CGFloat y = menuView.frame.origin.y;
-    CGFloat w = menuView.frame.size.width;
-    CGFloat h = menuView.frame.size.height;
+    CGFloat x = self.rootView.frame.size.width - self.layerView.frame.size.width;
+    CGFloat y = self.layerView.frame.origin.y;
+    CGFloat w = self.layerView.frame.size.width;
+    CGFloat h = self.layerView.frame.size.height;
     
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         //
-        menuView.frame = CGRectMake(x, y, w, h);
-        [menuView setHidden:NO];
+        self.layerView.frame = CGRectMake(x, y, w, h);
         
     } completion:^(BOOL finished) {
         //
