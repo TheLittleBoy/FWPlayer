@@ -17,6 +17,7 @@
 		04AC11CF1BD5D3BC0069E1E2 /* movieMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C61BD5D3BC0069E1E2 /* movieMenu.png */; settings = {ASSET_TAGS = (); }; };
 		04AC11D01BD5D3BC0069E1E2 /* moviePause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C71BD5D3BC0069E1E2 /* moviePause@2x.png */; settings = {ASSET_TAGS = (); }; };
 		04AC11D11BD5D3BC0069E1E2 /* moviePlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C81BD5D3BC0069E1E2 /* moviePlay@2x.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11DC1BD60BAE0069E1E2 /* FWSwipePlayerMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC11DB1BD60BAE0069E1E2 /* FWSwipePlayerMenuLayer.m */; settings = {ASSET_TAGS = (); }; };
 		5A14A8B61A70E647000920FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A14A8B51A70E647000920FB /* main.m */; };
 		5A14A8B91A70E647000920FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A14A8B81A70E647000920FB /* AppDelegate.m */; };
 		5A14A8C11A70E647000920FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A14A8C01A70E647000920FB /* Images.xcassets */; };
@@ -82,6 +83,8 @@
 		04AC11C61BD5D3BC0069E1E2 /* movieMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieMenu.png; sourceTree = "<group>"; };
 		04AC11C71BD5D3BC0069E1E2 /* moviePause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moviePause@2x.png"; sourceTree = "<group>"; };
 		04AC11C81BD5D3BC0069E1E2 /* moviePlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moviePlay@2x.png"; sourceTree = "<group>"; };
+		04AC11DA1BD60BAE0069E1E2 /* FWSwipePlayerMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWSwipePlayerMenuLayer.h; sourceTree = "<group>"; };
+		04AC11DB1BD60BAE0069E1E2 /* FWSwipePlayerMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWSwipePlayerMenuLayer.m; sourceTree = "<group>"; };
 		5A14A8B01A70E647000920FB /* FWDraggableSwipePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FWDraggableSwipePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A14A8B41A70E647000920FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A14A8B51A70E647000920FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				5AE348D11AF7531D0058E278 /* FWSwipePlayerNavLayer.m */,
 				5AE348D21AF7531D0058E278 /* FWSwipePlayerSettingLayer.h */,
 				5AE348D31AF7531D0058E278 /* FWSwipePlayerSettingLayer.m */,
+				04AC11DA1BD60BAE0069E1E2 /* FWSwipePlayerMenuLayer.h */,
+				04AC11DB1BD60BAE0069E1E2 /* FWSwipePlayerMenuLayer.m */,
 				5A14A8FA1A70E76C000920FB /* image */,
 			);
 			name = UI;
@@ -471,6 +476,7 @@
 				5AE348E61AF7532D0058E278 /* FWPlayerProgressSlider.m in Sources */,
 				5AE348E81AF7532D0058E278 /* FWSwipePlayerConfig.m in Sources */,
 				5AE348D61AF7531D0058E278 /* FWSwipePlayerLoadingLayer.m in Sources */,
+				04AC11DC1BD60BAE0069E1E2 /* FWSwipePlayerMenuLayer.m in Sources */,
 				5AE348F01AF75E370058E278 /* MovieDetailView.m in Sources */,
 				5AE348E71AF7532D0058E278 /* FWSwipePlayerBackgroundView.m in Sources */,
 				5A14A8B91A70E647000920FB /* AppDelegate.m in Sources */,

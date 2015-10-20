@@ -9,7 +9,7 @@
 #import "FWSwiperPlayerController.h"
 #import "FWSwipePlayerLoadingLayer.h"
 #import "FWSwipePlayerBottomLayer.h"
-#import "FWSwipePlayerSettingLayer.h"
+#import "FWSwipePlayerMenuLayer.h"
 #import "FWSwipePlayerNavLayer.h"
 
 
@@ -21,17 +21,16 @@ NSString *FWSwipePlayerDoneBtnOnclick = @"FWSwipePlayerDoneBtnOnclick";
 NSString *FWSwipePlayerPlayBtnOnclick = @"FWSwipePlayerPlayBtnOnclick";
 NSString *FWSwipePlayerFullScreenBtnOnclick = @"FWSwipePlayerFullScreenBtnOnclick";
 NSString *FWSwipePlayerNextEpisodeBtnOnclick = @"FWSwipePlayerNextEpisodeBtnOnclick";
-NSString *FWSwipePlayerSettingViewCloseBtnOnclick = @"FWSwipePlayerSettingViewCloseBtnOnclick";
 NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 
-@interface FWSwiperPlayerController()<FWSwipePlayerBottomLayerDelegate, FWSwipePlayerSettingLayerDelegate, FWSwipePlayerNavLayerDelegate>
+@interface FWSwiperPlayerController()<FWSwipePlayerBottomLayerDelegate, FWSwipePlayerMenuLayerDelegate, FWSwipePlayerNavLayerDelegate>
 {
     FWSwipePlayerLoadingLayer *loadingLayer;
     FWSwipePlayerNavLayer *navLayer;
 
     FWSwipePlayerBottomLayer *bottomLayer;
-    FWSwipePlayerSettingLayer *settingLayer;
+    FWSwipePlayerMenuLayer *menuLayer;
     
     UIImageView *centerView;
     UIButton *playBtn;
@@ -151,7 +150,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     [self configCenterControls];
     [self configPreloadPage];
     [self configBottomControls];
-    [self configSettingView];
+    [self configMenuView];
 }
 
 -(void)initMoviePlayer
@@ -253,10 +252,10 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     bottomLayer.delegate = self;
 }
 
--(void)configSettingView
+-(void)configMenuView
 {
-    settingLayer = [[FWSwipePlayerSettingLayer alloc]initLayerAttachTo:self.view];
-    settingLayer.delegate = self;
+    menuLayer = [[FWSwipePlayerMenuLayer alloc]initLayerAttachTo:self.view];
+    menuLayer.delegate = self;
 }
 
 -(void)showControls
@@ -402,13 +401,19 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 -(void)settingViewCloseBtnOnClick:(id)sender
 {
-    [settingLayer disappear];
+    [menuLayer disappear];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerSettingViewCloseBtnOnclick object:self userInfo:nil] ;
-    
-    if(self.delegate)
-        if([self.delegate respondsToSelector:@selector(settingViewCloseBtnOnClick:)])
-            [self.delegate settingViewCloseBtnOnClick:sender];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerSettingViewCloseBtnOnclick object:self userInfo:nil] ;
+//    
+//    if(self.delegate)
+//        if([self.delegate respondsToSelector:@selector(settingViewCloseBtnOnClick:)])
+//            [self.delegate settingViewCloseBtnOnClick:sender];
+}
+
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //menu
+    [menuLayer disappear];
 }
 
 -(void)downloadBtnOnClick:(id)sender
@@ -434,7 +439,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 -(void)menuBtnOnClick:(id)sender
 {
     [self hiddenControls];
-    [settingLayer show];
+    [menuLayer show];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerMenuBtnOnclick object:self userInfo:nil] ;
     
@@ -667,7 +672,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
     [loadingLayer updateFrame:rect];
     [navLayer updateFrame:CGRectMake(0, 0, viewWidth, 60)];
-    [settingLayer updateFrame:rect];
+    [menuLayer updateFrame:CGRectMake(viewWidth-200, 0, 200, viewHeight)];
     
     [bottomLayer updateFrame:CGRectMake(0, viewHeight - 40, viewWidth, 40)];
     
