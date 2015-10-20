@@ -12,14 +12,14 @@
 @protocol FWSwipePlayerNavLayerDelegate <NSObject>
 
 -(void)doneBtnOnClick:(id)sender;
--(void)settingBtnOnClick:(id)sender;
--(void)lockScreenBtnOnClick:(id)sender;
+-(void)menuBtnOnClick:(id)sender;
+-(void)downloadBtnOnClick:(id)sender;
 
 @end
 
 @interface FWSwipePlayerNavLayer : FWSwipePlayerLayer
 @property (nonatomic, assign)id<FWSwipePlayerNavLayerDelegate> delegate;
-@property (nonatomic, strong) UIButton *lockScreenBtn;
+@property (nonatomic, strong) UIButton *downloadBtn;
 - (id)initLayerAttachTo:(UIView *)view config:(FWSwipePlayerConfig*)configuration;
 - (void)orientationChange:(UIDeviceOrientation)orientation;
 @end

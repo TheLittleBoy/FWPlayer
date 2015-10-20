@@ -14,7 +14,7 @@
     FWSwipePlayerConfig *config;
     UIImageView *navView;
     UIButton *doneBtn;
-    UIButton *settingBtn;
+    UIButton *menuBtn;
     UILabel *titleLabel;
 }
 
@@ -49,17 +49,18 @@
     if(!config.draggable)
         [navView addSubview:doneBtn];
     
-    settingBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
-    [settingBtn addTarget:self action:@selector(settingBtnOnClick:)forControlEvents:UIControlEventTouchUpInside];
-    [settingBtn setImage:[UIImage imageNamed: @"btn_player_setting"] forState:UIControlStateNormal];
-    [navView addSubview:settingBtn];
+    menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuBtn.showsTouchWhenHighlighted = YES;
+    [menuBtn addTarget:self action:@selector(menuBtnOnClick:)forControlEvents:UIControlEventTouchUpInside];
+    [menuBtn setImage:[UIImage imageNamed: @"movieMenu"] forState:UIControlStateNormal];
+    [navView addSubview:menuBtn];
     
-    self.lockScreenBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
-    
-    [self.lockScreenBtn addTarget:self action:@selector(lockScreenBtnOnClick:)forControlEvents:UIControlEventTouchUpInside];
-    [self.lockScreenBtn setImage:[UIImage imageNamed: @"plugin_fullscreen_bottom_lock_btn_normal"] forState:UIControlStateNormal];
-    [self.lockScreenBtn setHidden:YES];
-    [navView addSubview:self.lockScreenBtn];
+    self.downloadBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
+    self.downloadBtn.showsTouchWhenHighlighted = YES;
+    [self.downloadBtn addTarget:self action:@selector(downloadBtnOnClick:)forControlEvents:UIControlEventTouchUpInside];
+    [self.downloadBtn setImage:[UIImage imageNamed: @"movieBuffer"] forState:UIControlStateNormal];
+    [self.downloadBtn setHidden:YES];
+    [navView addSubview:self.downloadBtn];
     
     titleLabel = [[UILabel alloc] init];
     titleLabel.backgroundColor = [UIColor clearColor];
@@ -78,8 +79,8 @@
     [super updateFrame:frame];
     titleLabel.frame =  CGRectMake(40, 12, frame.size.width - 140, 16);
     navView.frame = CGRectMake(0, 20, frame.size.width, frame.size.height-20);
-    settingBtn.frame = CGRectMake(frame.size.width - 22 - 8, 8, 22, 22);
-    self.lockScreenBtn.frame = CGRectMake(settingBtn.frame.origin.x  - 22 - 16, 2, 74 / 2, 92 / 2);
+    menuBtn.frame = CGRectMake(frame.size.width - 28 - 12, 6, 28, 28);
+    self.downloadBtn.frame = CGRectMake(menuBtn.frame.origin.x  - 28 - 12, 6, 28,28);
 }
 
 - (void)orientationChange:(UIDeviceOrientation)orientation
@@ -87,11 +88,11 @@
     if(orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight)
     {
         [titleLabel setHidden:NO];
-        [self.lockScreenBtn setHidden:NO];
+        [self.downloadBtn setHidden:NO];
     }
     else if(orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationPortraitUpsideDown)
     {
-        [self.lockScreenBtn setHidden:YES];
+        [self.downloadBtn setHidden:YES];
         [titleLabel setHidden:YES];
     }
 }
@@ -103,18 +104,18 @@
             [self.delegate doneBtnOnClick:sender];
 }
 
--(void)settingBtnOnClick:(id)sender
+-(void)menuBtnOnClick:(id)sender
 {
     if(self.delegate)
-        if([self.delegate respondsToSelector:@selector(settingBtnOnClick:)])
-            [self.delegate settingBtnOnClick:sender];
+        if([self.delegate respondsToSelector:@selector(menuBtnOnClick:)])
+            [self.delegate menuBtnOnClick:sender];
 }
 
--(void)lockScreenBtnOnClick:(id)sender
+-(void)downloadBtnOnClick:(id)sender
 {
     if(self.delegate)
-        if([self.delegate respondsToSelector:@selector(lockScreenBtnOnClick:)])
-            [self.delegate lockScreenBtnOnClick:sender];
+        if([self.delegate respondsToSelector:@selector(downloadBtnOnClick:)])
+            [self.delegate downloadBtnOnClick:sender];
 }
 
 @end

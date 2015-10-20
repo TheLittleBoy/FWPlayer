@@ -16,7 +16,7 @@
 #define HiddenControlTime  5
 
 NSString *FWSwipePlayerLockBtnOnclick = @"FWSwipePlayerLockBtnOnclick";
-NSString *FWSwipePlayerSettingBtnOnclick = @"FWSwipePlayerSettingBtnOnclick";
+NSString *FWSwipePlayerMenuBtnOnclick = @"FWSwipePlayerMenuBtnOnclick";
 NSString *FWSwipePlayerDoneBtnOnclick = @"FWSwipePlayerDoneBtnOnclick";
 NSString *FWSwipePlayerPlayBtnOnclick = @"FWSwipePlayerPlayBtnOnclick";
 NSString *FWSwipePlayerFullScreenBtnOnclick = @"FWSwipePlayerFullScreenBtnOnclick";
@@ -365,17 +365,16 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 -(void)fullScreenOnClick:(id)sender
 {
-    if(isLock)
-        [self lockScreenBtnOnClick:self];
-    
     if (isFullScreen) {
         [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"play_mini_p"] forState:UIControlStateNormal];
         //[self setOrientation:UIDeviceOrientationPortrait];
         isFullScreen = NO;
+        self.scalingMode = MPMovieScalingModeAspectFit;
     } else {
         [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"ppq_play_full_p"] forState:UIControlStateNormal];
         //[self setOrientation:UIDeviceOrientationLandscapeLeft];
         isFullScreen = YES;
+        self.scalingMode = MPMovieScalingModeFill;
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerFullScreenBtnOnclick object:self userInfo:nil] ;
@@ -412,13 +411,8 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             [self.delegate settingViewCloseBtnOnClick:sender];
 }
 
--(void)lockScreenBtnOnClick:(id)sender
+-(void)downloadBtnOnClick:(id)sender
 {
-    if(!isLock)
-        [navLayer.lockScreenBtn setImage:[UIImage imageNamed:@"plugin_fullscreen_bottom_lock_btn_selected"] forState:UIControlStateNormal];
-    else
-        [navLayer.lockScreenBtn setImage:[UIImage imageNamed:@"plugin_fullscreen_bottom_lock_btn_normal"] forState:UIControlStateNormal];
-    
     isLock = !isLock;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerLockBtnOnclick object:self userInfo:nil] ;
@@ -437,16 +431,16 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             [self.delegate doneBtnOnClick:sender];
 }
 
--(void)settingBtnOnClick:(id)sender
+-(void)menuBtnOnClick:(id)sender
 {
     [self hiddenControls];
     [settingLayer show];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerSettingBtnOnclick object:self userInfo:nil] ;
+    [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerMenuBtnOnclick object:self userInfo:nil] ;
     
     if(self.delegate)
-        if([self.delegate respondsToSelector:@selector(settingBtnOnClick:)])
-            [self.delegate settingBtnOnClick:sender];
+        if([self.delegate respondsToSelector:@selector(menuBtnOnClick:)])
+            [self.delegate menuBtnOnClick:sender];
 }
 
 -(void)nextEpisodeBtnOnClick:(id)sender

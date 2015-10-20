@@ -18,7 +18,7 @@ extern NSString *FWSwipePlayerFullScreenBtnOnclick;
 extern NSString *FWSwipePlayerNextEpisodeBtnOnclick;
 extern NSString *FWSwipePlayerOnTap;
 extern NSString *FWSwipePlayerViewStateChange;
-extern NSString *FWSwipePlayerSettingBtnOnclick;
+extern NSString *FWSwipePlayerMenuBtnOnclick;
 extern NSString *FWSwipePlayerDoneBtnOnclick;
 extern NSString *FWSwipePlayerSettingViewCloseBtnOnclick;
 
@@ -39,7 +39,7 @@ typedef enum _FWPlayerMoveState {
 - (void)lockScreenBtnOnClick:(id)sender;
 - (void)didFinishPlay:(NSURL*)url;
 - (void)doneBtnOnClick:(id)sender;
-- (void)settingBtnOnClick:(id)sender;
+- (void)menuBtnOnClick:(id)sender;
 - (void)settingViewCloseBtnOnClick:(id)sender;
 - (void)setStatusBarHidden:(BOOL)hidden;
 
