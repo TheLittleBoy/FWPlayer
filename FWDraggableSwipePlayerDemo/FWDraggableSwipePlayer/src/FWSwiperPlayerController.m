@@ -134,7 +134,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             colorUtil = [[FWPlayerColorUtil alloc]init];
             self.moveState = FWPlayerMoveNone;
             [self configControls];
-            [self showControls];
+            [self showControlsAndHiddenControlsAfter:HiddenControlTime];
         }
         return self;
     }
@@ -235,7 +235,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 {
     loadingLayer = [[FWSwipePlayerLoadingLayer alloc]initLayerAttachTo:self.view ];
     [loadingLayer attach];
-    
     [self startBandwidthTimer];
 }
 
@@ -243,19 +242,21 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 {
     navLayer = [[FWSwipePlayerNavLayer alloc]initLayerAttachTo:self.view config:config];
     navLayer.delegate = self;
-    
+    [navLayer attach];
 }
 
 -(void)configBottomControls
 {
     bottomLayer = [[FWSwipePlayerBottomLayer alloc]initLayerAttachTo:self.view];
     bottomLayer.delegate = self;
+    [bottomLayer attach];
 }
 
 -(void)configMenuView
 {
     menuLayer = [[FWSwipePlayerMenuLayer alloc]initLayerAttachTo:self.view];
     menuLayer.delegate = self;
+    [menuLayer attach];
 }
 
 -(void)showControls
@@ -679,7 +680,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
     centerView.frame = CGRectMake(viewWidth/2 - 100, viewHeight/2 - 100, 200, 200);
     
-    [loadingLayer updateFrame:rect];
+    [loadingLayer updateFrame:CGRectMake(viewWidth/2-50, viewHeight/2-50, 100, 100)];
     [navLayer updateFrame:CGRectMake(0, 0, viewWidth, 60)];
     [menuLayer updateFrame:CGRectMake(viewWidth, 0, 220, viewHeight)];
     
@@ -713,20 +714,13 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
 }
 
-- (void)addViewAfterLoading
-{
-    [navLayer attach];
-    [bottomLayer attach];
-    [self.view addSubview:playBtn];
-}
-
 - (void)stopLoading
 {
     if(isLoading)
     {
         isLoading = NO;
         [loadingLayer remove];
-        [self addViewAfterLoading];
+        [self.view addSubview:playBtn];
     }
 }
 
@@ -735,8 +729,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     if(!isLoading)
     {
         [playBtn removeFromSuperview];
-        [navLayer remove];
-        [bottomLayer remove];
         isLoading = YES;
         [loadingLayer attach];
     }

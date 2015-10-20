@@ -24,6 +24,7 @@
     self = [super initLayerAttachTo:view];
     if(self)
     {
+        self.layerView.backgroundColor = [UIColor clearColor];
         [self configLoadingPage];
     }
     return self;
@@ -31,9 +32,9 @@
 
 -(void)configLoadingPage
 {
-    loadingBgImageView = [[UIImageView alloc] init];
-    loadingBgImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"" ofType:@"png"]];
-    [self.layerView addSubview:loadingBgImageView];
+    //loadingBgImageView = [[UIImageView alloc] init];
+    //loadingBgImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"" ofType:@"png"]];
+    //[self.layerView addSubview:loadingBgImageView];
     
     loadingActiviy = [[UIActivityIndicatorView alloc] init];
     loadingActiviy.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
@@ -59,15 +60,15 @@
 -(void)remove
 {
     [super remove];
-    loadingBgImageView.image = [[UIImage alloc]init];
+    //loadingBgImageView.image = [[UIImage alloc]init];
 }
 
 - (void)updateFrame:(CGRect)frame
 {
     [super updateFrame:frame];
     loadingActiviy.frame = CGRectMake(frame.size.width/2 - 15, frame.size.height/2 - 15, 35, 35);
-    loadingLabel.frame = CGRectMake(frame.size.width/2 - 100, frame.size.height/2 + 15, 200, 30);
-    loadingBgImageView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    loadingLabel.frame = CGRectMake(frame.size.width/2 - 100, frame.size.height/2 + 20, 200, 30);
+    //loadingBgImageView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
 }
 
 - (void)updateLoadingText:(NSString*)text

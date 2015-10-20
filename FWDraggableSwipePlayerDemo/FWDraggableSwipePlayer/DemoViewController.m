@@ -120,7 +120,7 @@
                                                  selector:@selector(handleSwipePlayerViewStateChange:)
                                                      name:FWSwipePlayerViewStateChange object:nil];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerViewStateChange object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"isSmall",[NSNumber numberWithBool:NO],@"isLock",nil] ];
+        shouldRotate = YES;
         
         playerController =  [[FWSwipePlayerViewController alloc]init];
         FWSwipePlayerConfig *config = [[FWSwipePlayerConfig alloc]init];
@@ -139,7 +139,7 @@
         [playerController playStartAt:200];
 
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerViewStateChange object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"isSmall",[NSNumber numberWithBool:YES],@"isLock",nil] ];
+        shouldRotate = NO;
 
     }
 }
