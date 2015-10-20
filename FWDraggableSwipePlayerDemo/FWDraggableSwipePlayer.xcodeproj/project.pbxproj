@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0476A8CF1BD47E74005DD5C3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0476A8CE1BD47E74005DD5C3 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11C91BD5D3BC0069E1E2 /* movieBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C01BD5D3BC0069E1E2 /* movieBack.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11CA1BD5D3BC0069E1E2 /* movieBuffer.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C11BD5D3BC0069E1E2 /* movieBuffer.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11CB1BD5D3BC0069E1E2 /* movieEndFullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C21BD5D3BC0069E1E2 /* movieEndFullscreen.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11CC1BD5D3BC0069E1E2 /* movieEndFullscreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C31BD5D3BC0069E1E2 /* movieEndFullscreen@2x.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11CD1BD5D3BC0069E1E2 /* movieFullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C41BD5D3BC0069E1E2 /* movieFullscreen.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11CE1BD5D3BC0069E1E2 /* movieFullscreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C51BD5D3BC0069E1E2 /* movieFullscreen@2x.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11CF1BD5D3BC0069E1E2 /* movieMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C61BD5D3BC0069E1E2 /* movieMenu.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11D01BD5D3BC0069E1E2 /* moviePause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C71BD5D3BC0069E1E2 /* moviePause@2x.png */; settings = {ASSET_TAGS = (); }; };
+		04AC11D11BD5D3BC0069E1E2 /* moviePlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AC11C81BD5D3BC0069E1E2 /* moviePlay@2x.png */; settings = {ASSET_TAGS = (); }; };
 		5A14A8B61A70E647000920FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A14A8B51A70E647000920FB /* main.m */; };
 		5A14A8B91A70E647000920FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A14A8B81A70E647000920FB /* AppDelegate.m */; };
 		5A14A8C11A70E647000920FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A14A8C01A70E647000920FB /* Images.xcassets */; };
@@ -64,6 +73,15 @@
 
 /* Begin PBXFileReference section */
 		0476A8CE1BD47E74005DD5C3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		04AC11C01BD5D3BC0069E1E2 /* movieBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieBack.png; sourceTree = "<group>"; };
+		04AC11C11BD5D3BC0069E1E2 /* movieBuffer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieBuffer.png; sourceTree = "<group>"; };
+		04AC11C21BD5D3BC0069E1E2 /* movieEndFullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieEndFullscreen.png; sourceTree = "<group>"; };
+		04AC11C31BD5D3BC0069E1E2 /* movieEndFullscreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "movieEndFullscreen@2x.png"; sourceTree = "<group>"; };
+		04AC11C41BD5D3BC0069E1E2 /* movieFullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieFullscreen.png; sourceTree = "<group>"; };
+		04AC11C51BD5D3BC0069E1E2 /* movieFullscreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "movieFullscreen@2x.png"; sourceTree = "<group>"; };
+		04AC11C61BD5D3BC0069E1E2 /* movieMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieMenu.png; sourceTree = "<group>"; };
+		04AC11C71BD5D3BC0069E1E2 /* moviePause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moviePause@2x.png"; sourceTree = "<group>"; };
+		04AC11C81BD5D3BC0069E1E2 /* moviePlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moviePlay@2x.png"; sourceTree = "<group>"; };
 		5A14A8B01A70E647000920FB /* FWDraggableSwipePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FWDraggableSwipePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A14A8B41A70E647000920FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A14A8B51A70E647000920FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,6 +168,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04AC11BF1BD5D3BC0069E1E2 /* ALmovieImages */ = {
+			isa = PBXGroup;
+			children = (
+				04AC11C01BD5D3BC0069E1E2 /* movieBack.png */,
+				04AC11C11BD5D3BC0069E1E2 /* movieBuffer.png */,
+				04AC11C21BD5D3BC0069E1E2 /* movieEndFullscreen.png */,
+				04AC11C31BD5D3BC0069E1E2 /* movieEndFullscreen@2x.png */,
+				04AC11C41BD5D3BC0069E1E2 /* movieFullscreen.png */,
+				04AC11C51BD5D3BC0069E1E2 /* movieFullscreen@2x.png */,
+				04AC11C61BD5D3BC0069E1E2 /* movieMenu.png */,
+				04AC11C71BD5D3BC0069E1E2 /* moviePause@2x.png */,
+				04AC11C81BD5D3BC0069E1E2 /* moviePlay@2x.png */,
+			);
+			path = ALmovieImages;
+			sourceTree = "<group>";
+		};
 		5A14A8A71A70E647000920FB = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +251,7 @@
 		5A14A8DF1A70E721000920FB /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				04AC11BF1BD5D3BC0069E1E2 /* ALmovieImages */,
 				5AF5F02E1B1D829E00E1402D /* MPMoviePlayer */,
 				5AE68F301AA83312006861AD /* Utility */,
 				5ADC7EAE1AAD8183007DA349 /* UI */,
@@ -389,12 +424,21 @@
 				5AF5F0261B1D68F500E1402D /* btn_player_pause.png in Resources */,
 				5AE5814A1AEA16D60006D709 /* FWDraggableSwipePlayer.podspec in Resources */,
 				5AE348C01AF753060058E278 /* play_mini_p.png in Resources */,
+				04AC11CD1BD5D3BC0069E1E2 /* movieFullscreen.png in Resources */,
 				5AE348B41AF753060058E278 /* btn_player_setting.png in Resources */,
+				04AC11CE1BD5D3BC0069E1E2 /* movieFullscreen@2x.png in Resources */,
 				5A14A8F91A70E765000920FB /* list.json in Resources */,
+				04AC11CB1BD5D3BC0069E1E2 /* movieEndFullscreen.png in Resources */,
+				04AC11CC1BD5D3BC0069E1E2 /* movieEndFullscreen@2x.png in Resources */,
+				04AC11CA1BD5D3BC0069E1E2 /* movieBuffer.png in Resources */,
+				04AC11C91BD5D3BC0069E1E2 /* movieBack.png in Resources */,
+				04AC11D01BD5D3BC0069E1E2 /* moviePause@2x.png in Resources */,
 				5AE348BE1AF753060058E278 /* play_gesture_forward.png in Resources */,
 				5AE348BF1AF753060058E278 /* play_gesture_rewind.png in Resources */,
 				0476A8CF1BD47E74005DD5C3 /* Default-568h@2x.png in Resources */,
+				04AC11D11BD5D3BC0069E1E2 /* moviePlay@2x.png in Resources */,
 				5AE348BB1AF753060058E278 /* mini_middle_bg.png in Resources */,
+				04AC11CF1BD5D3BC0069E1E2 /* movieMenu.png in Resources */,
 				5AE348C41AF753060058E278 /* plugin_fullscreen_bottom_lock_btn_selected.png in Resources */,
 				5AE5814B1AEA3F640006D709 /* Main.storyboard in Resources */,
 				5AE348C31AF753060058E278 /* plugin_fullscreen_bottom_lock_btn_normal.png in Resources */,

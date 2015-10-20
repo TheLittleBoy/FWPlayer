@@ -216,7 +216,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
     playBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
     playBtn.frame = CGRectMake((screenWidth - 35) / 2, (screenHeight - 35) / 2, 35, 35);
-    [playBtn setBackgroundImage:[UIImage imageNamed:@"btn_player_play"] forState:UIControlStateNormal];
+    [playBtn setBackgroundImage:[UIImage imageNamed:@"moviePlay"] forState:UIControlStateNormal];
     [playBtn addTarget:self action:@selector(playBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
     [playBtn setAlpha:1];
     
@@ -629,7 +629,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         bottomLayer.sliderProgress.value = 0;
         bottomLayer.currentPlayTimeLabel.text =[self convertStringFromInterval:self.currentPlaybackTime];
         [self pause];
-        [playBtn setBackgroundImage:[UIImage imageNamed:@"btn_player_play"] forState:UIControlStateNormal];
+        [playBtn setBackgroundImage:[UIImage imageNamed:@"moviePlay"] forState:UIControlStateNormal];
         isPlaying = NO;
         
     } else {
@@ -670,7 +670,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     centerView.frame = CGRectMake(viewWidth/2 - 100, viewHeight/2 - 100, 200, 200);
     
     [loadingLayer updateFrame:rect];
-    [navLayer updateFrame:CGRectMake(0, 0, viewWidth, 40)];
+    [navLayer updateFrame:CGRectMake(0, 0, viewWidth, 60)];
     [settingLayer updateFrame:rect];
     
     [bottomLayer updateFrame:CGRectMake(0, viewHeight - 36, viewWidth, 36)];
@@ -781,7 +781,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 - (void)enterBackground:(NSNotification *)notity {
     [super pause];
-    [playBtn setBackgroundImage:[UIImage imageNamed:@"btn_player_play"] forState:UIControlStateNormal];
+    [playBtn setBackgroundImage:[UIImage imageNamed:@"moviePlay"] forState:UIControlStateNormal];
     isPlaying = NO;
 }
 
@@ -836,7 +836,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 -(void)play
 {
     [super play];
-    [playBtn setBackgroundImage:[UIImage imageNamed:@"btn_player_pause"] forState:UIControlStateNormal];
+    [playBtn setBackgroundImage:[UIImage imageNamed:@"moviePause"] forState:UIControlStateNormal];
     isPlaying = YES;
     [self monitorPlaybackTime];
 }
@@ -851,7 +851,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(monitorPlaybackTime) object:nil];
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hiddenControls) object:nil];
-    [playBtn setBackgroundImage:[UIImage imageNamed:@"btn_player_play"] forState:UIControlStateNormal];
+    [playBtn setBackgroundImage:[UIImage imageNamed:@"moviePlay"] forState:UIControlStateNormal];
     [super pause];
     isPlaying = NO;
 }
@@ -930,7 +930,15 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 #pragma mark UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return YES;
+    
+    if([touch.view isKindOfClass:[UISlider class]])
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {

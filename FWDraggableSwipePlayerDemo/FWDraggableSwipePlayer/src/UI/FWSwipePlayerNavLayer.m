@@ -42,8 +42,9 @@
     [colorUtil setGradientBlackToWhiteColor:navView];
     
     doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    doneBtn.frame = CGRectMake(8, 8, 22, 22);
-    [doneBtn setTitle:@"X" forState:UIControlStateNormal];
+    doneBtn.showsTouchWhenHighlighted = YES;
+    doneBtn.frame = CGRectMake(8, 6, 28, 28);
+    [doneBtn setImage:[UIImage imageNamed:@"movieBack.png"] forState:UIControlStateNormal];
     [doneBtn addTarget:self action:@selector(doneBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
     if(!config.draggable)
         [navView addSubview:doneBtn];
@@ -75,7 +76,7 @@
 -(void)updateFrame:(CGRect)frame
 {
     [super updateFrame:frame];
-    titleLabel.frame =  CGRectMake(30, 12, frame.size.width - 140, 16);
+    titleLabel.frame =  CGRectMake(40, 12, frame.size.width - 140, 16);
     navView.frame = CGRectMake(0, 20, frame.size.width, frame.size.height-20);
     settingBtn.frame = CGRectMake(frame.size.width - 22 - 8, 8, 22, 22);
     self.lockScreenBtn.frame = CGRectMake(settingBtn.frame.origin.x  - 22 - 16, 2, 74 / 2, 92 / 2);

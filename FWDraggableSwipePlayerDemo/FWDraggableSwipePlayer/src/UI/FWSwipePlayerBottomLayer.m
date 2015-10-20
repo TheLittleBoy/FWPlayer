@@ -66,7 +66,7 @@
     [bottomView addSubview:cacheProgress];
     
     sliderProgress = [[FWPlayerProgressSlider alloc] init];
-    sliderProgress.minimumTrackTintColor = [UIColor redColor];
+    sliderProgress.minimumTrackTintColor = [UIColor greenColor];
     sliderProgress.maximumTrackTintColor = [colorUtil colorWithHex:@"#000000" alpha:0.50];
     sliderProgress.thumbTintColor = [colorUtil colorWithHex:@"#000000" alpha:0.50];
     [sliderProgress addTarget:self action:@selector(changePlayerProgress:) forControlEvents:UIControlEventValueChanged];
