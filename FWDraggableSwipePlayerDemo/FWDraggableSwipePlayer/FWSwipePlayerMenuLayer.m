@@ -41,7 +41,7 @@
     menuView.backgroundColor = [colorUtil colorWithHex:@"#000000" alpha:0.5];
     
     
-    self.listView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStylePlain];
+    self.listView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
     self.listView.dataSource = self;
     self.listView.delegate = self;
     [self.listView setBackgroundColor:[colorUtil colorWithHex:@"#000000" alpha:0.2]];
@@ -56,7 +56,7 @@
 {
     [super updateFrame:frame];
     menuView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-
+    self.listView.frame = menuView.bounds;
 }
 
 -(void)disappear
@@ -66,7 +66,7 @@
     CGFloat w = self.layerView.frame.size.width;
     CGFloat h = self.layerView.frame.size.height;
     
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         //
         self.layerView.frame = CGRectMake(x, y, w, h);
         
@@ -89,7 +89,7 @@
     CGFloat w = self.layerView.frame.size.width;
     CGFloat h = self.layerView.frame.size.height;
     
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         //
         self.layerView.frame = CGRectMake(x, y, w, h);
         

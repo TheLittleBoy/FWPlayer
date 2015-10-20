@@ -45,7 +45,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     BOOL needToHideController;
     BOOL isLock;
     BOOL isSmall;
-    BOOL isSettingViewShow;
+    BOOL isMenuViewShow;
     BOOL isLoading;
     BOOL isSeeking;
     BOOL isShowingStatusBar;
@@ -94,7 +94,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         isLock = NO;
         isSmall = NO;
         isLoading = YES;
-        isSettingViewShow = NO;
+        isMenuViewShow = NO;
         isSeeking = NO;
         config = configuration;
         colorUtil = [[FWPlayerColorUtil alloc]init];
@@ -129,7 +129,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             isLock = NO;
             isSmall = NO;
             isLoading = YES;
-            isSettingViewShow = NO;
+            isMenuViewShow = NO;
             config = configuration;
             colorUtil = [[FWPlayerColorUtil alloc]init];
             self.moveState = FWPlayerMoveNone;
@@ -322,7 +322,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 {
     [menuLayer disappear];
     
-    isSettingViewShow = NO;
+    isMenuViewShow = NO;
 }
 
 #pragma mark slider
@@ -352,7 +352,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         {
             
         }
-        else if(!isSettingViewShow)
+        else if(!isMenuViewShow)
             [self showControlsAndHiddenControlsAfter:HiddenControlTime];
         else
         {
@@ -448,7 +448,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     [self hiddenControls];
     [menuLayer show];
     
-    isSettingViewShow = YES;
+    isMenuViewShow = YES;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerMenuBtnOnclick object:self userInfo:nil] ;
     
@@ -583,7 +583,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 -(void)volumeShow:(CGPoint)point
 {
-    if(!isSettingViewShow)
+    if(!isMenuViewShow)
     {
         int number = point.y;
         
@@ -681,7 +681,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
     [loadingLayer updateFrame:rect];
     [navLayer updateFrame:CGRectMake(0, 0, viewWidth, 60)];
-    [menuLayer updateFrame:CGRectMake(viewWidth, 0, 200, viewHeight)];
+    [menuLayer updateFrame:CGRectMake(viewWidth, 0, 220, viewHeight)];
     
     [bottomLayer updateFrame:CGRectMake(0, viewHeight - 40, viewWidth, 40)];
     
