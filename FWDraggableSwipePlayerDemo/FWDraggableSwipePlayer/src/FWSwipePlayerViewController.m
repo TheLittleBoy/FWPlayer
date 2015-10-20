@@ -97,4 +97,12 @@
     [self.moviePlayer stopAndRemove];
 }
 
+
+#pragma mark - status bar
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 @end

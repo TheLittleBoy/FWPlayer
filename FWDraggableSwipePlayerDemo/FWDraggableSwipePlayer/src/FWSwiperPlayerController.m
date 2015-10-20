@@ -47,6 +47,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     BOOL isSettingViewShow;
     BOOL isLoading;
     BOOL isSeeking;
+    BOOL isShowingStatusBar;
     
     float curVolume;
     float curPlaytime;
@@ -262,6 +263,12 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         return;
     }
     isAnimationing = YES;
+    isShowingStatusBar = YES;
+    
+    if(self.delegate)
+        if([self.delegate respondsToSelector:@selector(setStatusBarHidden:)])
+            [self.delegate setStatusBarHidden:NO];
+    
     [UIView animateWithDuration:0.2 animations:^{
         [navLayer show];
         [bottomLayer show];
@@ -287,6 +294,12 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         return;
     }
     isAnimationing = YES;
+    isShowingStatusBar = YES;
+    
+    if(self.delegate)
+        if([self.delegate respondsToSelector:@selector(setStatusBarHidden:)])
+            [self.delegate setStatusBarHidden:YES];
+    
     [UIView animateWithDuration:0.2 animations:^{
         [navLayer disappear];
         [bottomLayer disappear];

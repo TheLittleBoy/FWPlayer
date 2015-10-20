@@ -29,6 +29,7 @@
     {
         rootView = view;
         layerView = [[UIView alloc]init];
+        //layerView.backgroundColor = [UIColor grayColor];
     }
     return self;
 }

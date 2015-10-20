@@ -41,6 +41,7 @@ typedef enum _FWPlayerMoveState {
 - (void)doneBtnOnClick:(id)sender;
 - (void)settingBtnOnClick:(id)sender;
 - (void)settingViewCloseBtnOnClick:(id)sender;
+- (void)setStatusBarHidden:(BOOL)hidden;
 
 @end
 

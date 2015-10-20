@@ -17,6 +17,7 @@
     NSMutableArray *list;
     BOOL shouldRotate;
     FWSwipePlayerViewController *playerController;
+    BOOL isShowingStatusBar;
 }
 
 @end
@@ -190,6 +191,34 @@
         [invocation setArgument:&val atIndex:2];
         [invocation invoke];
     }
+}
+
+- (void)setStatusBarHidden:(BOOL)hidden
+{
+    isShowingStatusBar = hidden;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+#pragma mark - status bar
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return isShowingStatusBar;
+}
+
+- (UIViewController *)childViewControllerForStatusBarStyle
+{
+    if(playerController != nil)
+    {
+        return playerController;
+    }
+    
+    return nil;
 }
 
 #pragma mark rotata
