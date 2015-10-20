@@ -13,6 +13,8 @@
 #import "FWSwipePlayerNavLayer.h"
 
 
+#define HiddenControlTime  5
+
 NSString *FWSwipePlayerLockBtnOnclick = @"FWSwipePlayerLockBtnOnclick";
 NSString *FWSwipePlayerSettingBtnOnclick = @"FWSwipePlayerSettingBtnOnclick";
 NSString *FWSwipePlayerDoneBtnOnclick = @"FWSwipePlayerDoneBtnOnclick";
@@ -345,7 +347,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
             
         }
         else if(!isSettingViewShow)
-            [self showControlsAndHiddenControlsAfter:6];
+            [self showControlsAndHiddenControlsAfter:HiddenControlTime];
         else
         {
            
@@ -389,7 +391,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         [self pause];
     } else {
         [self play];
-        [self showControlsAndHiddenControlsAfter:6];
+        [self showControlsAndHiddenControlsAfter:HiddenControlTime];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:FWSwipePlayerPlayBtnOnclick object:self userInfo:nil] ;
@@ -673,8 +675,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     [navLayer updateFrame:CGRectMake(0, 0, viewWidth, 60)];
     [settingLayer updateFrame:rect];
     
-    [bottomLayer updateFrame:CGRectMake(0, viewHeight - 36, viewWidth, 36)];
-    
+    [bottomLayer updateFrame:CGRectMake(0, viewHeight - 40, viewWidth, 40)];
     
     
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
