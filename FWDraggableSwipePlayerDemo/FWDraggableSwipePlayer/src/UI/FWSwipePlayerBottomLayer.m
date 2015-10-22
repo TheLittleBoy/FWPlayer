@@ -40,7 +40,7 @@
     
     fullScreenBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
     fullScreenBtn.showsTouchWhenHighlighted = YES;
-    [fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"play_mini_p"] forState:UIControlStateNormal];
+    [fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"movieFullscreen"] forState:UIControlStateNormal];
     [fullScreenBtn addTarget:self action:@selector(fullScreenOnClick:) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:fullScreenBtn];
     
@@ -62,12 +62,12 @@
     [bottomView addSubview:remainPlayTimeLabel];
     
     cacheProgress = [[FWPlayerProgressSlider alloc] init];
-    cacheProgress.minimumTrackTintColor = [colorUtil colorWithHex:@"#000000" alpha:0.50];
+    cacheProgress.minimumTrackTintColor = [UIColor colorWithRed:0.37 green:0.76 blue:0.42 alpha:1];
     [cacheProgress setThumbImage:[[UIImage alloc] init] forState:UIControlStateNormal];
     [bottomView addSubview:cacheProgress];
     
     sliderProgress = [[FWPlayerProgressSlider alloc] init];
-    sliderProgress.minimumTrackTintColor = [UIColor greenColor];
+    sliderProgress.minimumTrackTintColor = [UIColor colorWithRed:0.31 green:0.85 blue:0.43 alpha:1];
     sliderProgress.maximumTrackTintColor = [colorUtil colorWithHex:@"#000000" alpha:0.50];
     //滑块颜色
     //sliderProgress.thumbTintColor = [UIColor redColor];
@@ -87,11 +87,11 @@
     [super updateFrame:frame];
     bottomView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
     bottomView.layer.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-    fullScreenBtn.frame = CGRectMake(bottomView.frame.size.width - 44, 0 , 40, 40);
+    fullScreenBtn.frame = CGRectMake(bottomView.frame.size.width - 34, (bottomView.frame.size.height - 22)/2.0 , 22, 22);
     currentPlayTimeLabel.frame = CGRectMake(12,(bottomView.frame.size.height - 9)/2.0, 55, 9);
     remainPlayTimeLabel.frame = CGRectMake(fullScreenBtn.frame.origin.x - 11 - currentPlayTimeLabel.frame.size.width, currentPlayTimeLabel.frame.origin.y, currentPlayTimeLabel.frame.size.width, currentPlayTimeLabel.frame.size.height);
-    cacheProgress.frame = CGRectMake(currentPlayTimeLabel.frame.size.width + currentPlayTimeLabel.frame.origin.x + 5, bottomView.frame.size.height/2.0 - 2, remainPlayTimeLabel.frame.origin.x - currentPlayTimeLabel.frame.size.width - currentPlayTimeLabel.frame.origin.x - 10, 4);
-    sliderProgress.frame = CGRectMake(cacheProgress.frame.origin.x, cacheProgress.frame.origin.y, cacheProgress.frame.size.width, frame.size.height);
+    cacheProgress.frame = CGRectMake(currentPlayTimeLabel.frame.size.width + currentPlayTimeLabel.frame.origin.x + 5, bottomView.frame.size.height/2.0 - 2, remainPlayTimeLabel.frame.origin.x - currentPlayTimeLabel.frame.size.width - currentPlayTimeLabel.frame.origin.x - 10 - 1, 4);
+    sliderProgress.frame = CGRectMake(cacheProgress.frame.origin.x, cacheProgress.frame.origin.y, cacheProgress.frame.size.width + 1, frame.size.height);
 }
 
 -(void)fullScreenOnClick:(id)sender

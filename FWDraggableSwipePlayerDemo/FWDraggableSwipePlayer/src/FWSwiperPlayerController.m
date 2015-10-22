@@ -217,6 +217,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     
     playBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
     playBtn.frame = CGRectMake((screenWidth - 35) / 2, (screenHeight - 35) / 2, 35, 35);
+    playBtn.showsTouchWhenHighlighted = YES;
     [playBtn setBackgroundImage:[UIImage imageNamed:@"moviePlay"] forState:UIControlStateNormal];
     [playBtn addTarget:self action:@selector(playBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
     [playBtn setAlpha:1];
@@ -373,12 +374,12 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 -(void)fullScreenOnClick:(id)sender
 {
     if (isFullScreen) {
-        [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"play_mini_p"] forState:UIControlStateNormal];
+        [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"movieFullscreen"] forState:UIControlStateNormal];
         //[self setOrientation:UIDeviceOrientationPortrait];
         isFullScreen = NO;
         self.scalingMode = MPMovieScalingModeAspectFit;
     } else {
-        [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"ppq_play_full_p"] forState:UIControlStateNormal];
+        [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"movieEndFullscreen"] forState:UIControlStateNormal];
         //[self setOrientation:UIDeviceOrientationLandscapeLeft];
         isFullScreen = YES;
         self.scalingMode = MPMovieScalingModeFill;
@@ -693,16 +694,12 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     {
         playBtn.frame = CGRectMake(viewWidth/2 - 35, viewHeight/2 - 35, 75, 75);
         swipeView.frame = CGRectMake((centerView.frame.size.width - 70) / 2, (centerView.frame.size.height - 70) / 2, 70, 70);
-        isFullScreen = YES;
-        [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"ppq_play_full_p"] forState:UIControlStateNormal];
         middleBackground.frame = CGRectMake((viewWidth - 456 / 4) / 2, (viewHeight - 447 / 4) / 2, 456 / 4, 447 / 4);
     }
     else if(orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationPortraitUpsideDown)
     {
         playBtn.frame = CGRectMake(viewWidth/2 - 15, viewHeight/2 - 15, 35, 35);
         swipeView.frame = CGRectMake((centerView.frame.size.width - 35) / 2, (centerView.frame.size.height - 35) / 2, 35, 35);
-        isFullScreen = NO;
-        [bottomLayer.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"play_mini_p"] forState:UIControlStateNormal];
         middleBackground.frame = CGRectMake((screenWidth - 456 / 4) / 2, (screenHeight - 447 / 4) / 2, 456 / 4, 447 / 4);
     }
     else
