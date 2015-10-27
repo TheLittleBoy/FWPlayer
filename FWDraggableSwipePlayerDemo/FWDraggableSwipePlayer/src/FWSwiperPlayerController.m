@@ -4,7 +4,7 @@
 //
 //  Created by Filly Wang on 20/1/15.
 //  Copyright (c) 2015 Filly Wang. All rights reserved.
-//
+//  Edit by wangxuanao on 2015年10月
 
 #import "FWSwiperPlayerController.h"
 #import "FWSwipePlayerLoadingLayer.h"
@@ -35,7 +35,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     UIImageView *centerView;
     UIButton *playBtn;
     UIImageView *swipeView;
-    UIImageView *middleBackground;//貌似没用了
     UILabel *progressLabel;
     
     BOOL isPlaying;
@@ -139,7 +138,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         return self;
     }
     else
-        return [self initWithContentURL:[NSURL URLWithString: @"http://techslides.com/demos/sample-videos/small.mp4"] andConfig:[[FWSwipePlayerConfig alloc]init]];
+        return [self initWithContentURL:[NSURL URLWithString:@""] andConfig:[[FWSwipePlayerConfig alloc]init]];
 }
 
 
@@ -204,14 +203,8 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     centerView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:centerView];
     
-    middleBackground = [[UIImageView alloc] initWithFrame:CGRectMake((screenWidth - 456 / 4) / 2, (screenHeight - 447 / 4) / 2, 456 / 4, 447 / 4)];
-    [middleBackground setImage:[UIImage imageNamed:@"mini_middle_bg"]];
-    middleBackground.backgroundColor = [UIColor clearColor];
-    [middleBackground setHidden:YES];
-    [self.view addSubview:middleBackground];
-    
-    swipeView = [[UIImageView alloc] initWithFrame:CGRectMake((centerView.frame.size.width - 70) / 2, (centerView.frame.size.height - 70) / 2, 70, 70)];
-    [swipeView setImage:[UIImage imageNamed:@"play_gesture_forward"]];
+    swipeView = [[UIImageView alloc] initWithFrame:CGRectMake((centerView.frame.size.width - 100) / 2, (centerView.frame.size.height - 70) / 2, 100, 70)];
+    [swipeView setImage:[UIImage imageNamed:@"movie_play_gesture_forward"]];
     [swipeView setHidden:YES];
     [centerView addSubview:swipeView];
     
@@ -531,7 +524,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 -(void)brightHide:(CGPoint)point
 {
     [swipeView setHidden:YES];
-    [middleBackground setHidden:YES];
 }
 
 -(void)progressHide:(CGPoint)point
@@ -564,7 +556,7 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 -(void)progressShow:(CGPoint)point
 {
     int number = point.x;
-    [swipeView setImage:[UIImage imageNamed:number > 0 ? @"play_gesture_forward" : @"play_gesture_rewind" ]];
+    [swipeView setImage:[UIImage imageNamed:number > 0 ? @"movie_play_gesture_forward" : @"movie_play_gesture_rewind" ]];
     
     [self showSwipeView];
     
@@ -580,7 +572,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     if(isPlaying)
         [self temporyaryPause];
     
-    [middleBackground setHidden:YES];
 }
 
 -(void)volumeShow:(CGPoint)point
@@ -598,7 +589,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
         if(volume != volume0)
             [MPMusicPlayerController applicationMusicPlayer].volume = volume;
         
-        [middleBackground setHidden:YES];
     }
 }
 
@@ -693,14 +683,12 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
     if(orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight)
     {
         playBtn.frame = CGRectMake(viewWidth/2 - 35, viewHeight/2 - 35, 75, 75);
-        swipeView.frame = CGRectMake((centerView.frame.size.width - 70) / 2, (centerView.frame.size.height - 70) / 2, 70, 70);
-        middleBackground.frame = CGRectMake((viewWidth - 456 / 4) / 2, (viewHeight - 447 / 4) / 2, 456 / 4, 447 / 4);
+        swipeView.frame = CGRectMake((centerView.frame.size.width - 100) / 2, (centerView.frame.size.height - 70) / 2, 100, 70);
     }
     else if(orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationPortraitUpsideDown)
     {
         playBtn.frame = CGRectMake(viewWidth/2 - 15, viewHeight/2 - 15, 35, 35);
         swipeView.frame = CGRectMake((centerView.frame.size.width - 35) / 2, (centerView.frame.size.height - 35) / 2, 35, 35);
-        middleBackground.frame = CGRectMake((screenWidth - 456 / 4) / 2, (screenHeight - 447 / 4) / 2, 456 / 4, 447 / 4);
     }
     else
     {
@@ -785,7 +773,6 @@ NSString *FWSwipePlayerOnTap = @"FWSwipePlayerOnTap";
 
 -(void)UIDeviceOrientationDidChangeNotification:(NSNotification *)notity
 {
-    
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     if(orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight )
     {

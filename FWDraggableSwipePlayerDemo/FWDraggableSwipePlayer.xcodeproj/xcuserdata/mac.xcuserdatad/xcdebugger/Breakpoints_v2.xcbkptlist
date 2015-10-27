@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FWDraggableSwipePlayer/src/FWSwiperPlayerController.m"
-            timestampString = "467019627.555564"
+            timestampString = "467280272.030774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-initWithContentDataList:andConfig:"
             landmarkType = "5">
          </BreakpointContent>
